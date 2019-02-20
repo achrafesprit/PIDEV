@@ -1,0 +1,77 @@
+<h4> Rechercher voiture </h4>
+
+<form method="post">
+    <label> moteur :</label>
+    <input type="text" name="moteur"> <br>
+    <label> remarquage :</label>
+    <input type="text" name="remarquage"> <br>
+    <input type="submit" value="Rechercher">
+</form>
+
+<table border="2" bgcolor="aqua">
+    <div class="row">
+        <div class="col-xs-12" >
+            <table id="simple-table" class="table  table-bordered table-hover" >
+                <thead>
+                <tr>
+                    <th> id de dossier sinistre  </th>
+                    <th> id desinistre automobile </th>
+                    <th> id de user </th>
+                    <th> contrat tout risque </th>
+                    <th> contrat standard</th>
+                    <th> entré dans l'interdit </th>
+                    <th> depaser stop ou feu  </th>
+                    <th> depasser vitesse maximale </th>
+                    <th> point de choc sur le moteur  </th>
+                    <th> point de choc sur la carcasse  </th>
+                    <th> remarquage </th>
+                    <th> fracture</th>
+                    <th> cas d'accident mortelle</th>
+                    <th> cas d'hemoragie</th>
+                    <th> Modifier</th>
+                    <th> supprimer</th>
+
+
+
+
+
+                </tr>
+                </tr>
+                {% for DossierSinistreAutomobile in DossierSinistreAutomobile %}
+                    <tr>
+                        <td> {{ DossierSinistreAutomobile.idDossierSinistreAutomobile }}</td>
+                        <td>
+                            {{ DossierSinistreAutomobile.SinistreAutomobile.idautomobile  }}</td>
+                        <td> {{ DossierSinistreAutomobile.user.id }}</td>
+                        <td> {{ DossierSinistreAutomobile.toutrsique }}</td>
+                        <td> {{ DossierSinistreAutomobile.standard }}</td>
+                        <td> {{ DossierSinistreAutomobile.entreeinterdit }}</td>
+                        <td> {{ DossierSinistreAutomobile.depassefeuoustop }}</td>
+                        <td> {{ DossierSinistreAutomobile.depassevitessemaximale }}</td>
+                        <td> {{ DossierSinistreAutomobile.moteur }}</td>
+                        <td>{{ DossierSinistreAutomobile.carcase   }}</td>
+                        <td> {{ DossierSinistreAutomobile.remarquage }}</td>
+                        <td> {{ DossierSinistreAutomobile.fracture }}</td>
+                        <td> {{ DossierSinistreAutomobile.accidentmortelle }}</td>
+                        <td> {{ DossierSinistreAutomobile.hemoragie }}</td>
+                        <td> <a href=" {{ path("Supprimer_Dossiersinistreautomobile",{'id': DossierSinistreAutomobile.idDossierSinistreAutomobile} ) }}"> Supprimer</a> </td>
+                        <td> <a href=" {{ path("Modifier_Dossiersinistreautomobile",{'id': DossierSinistreAutomobile.idDossierSinistreAutomobile} ) }}"> Modifier</a> </td>
+
+
+
+                    </tr>
+
+
+
+
+
+
+
+
+
+
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</table>

@@ -1,0 +1,78 @@
+{% extends "layout.html.twig" %}
+{% block content1 %}
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/font-awesome/4.5.0/css/font-awesome.min.css')}}" />
+
+    <!-- page specific plugin styles -->
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/fonts.googleapis.com.css')}}" />
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace.min.css')}}" class="ace-main-stylesheet" id="main-ace-style" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace-part2.min.css')}}" class="ace-main-stylesheet" />
+    <![endif]-->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace-skins.min.css')}}" />
+    <link rel="stylesheet" href="asset/css/ace-rtl.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+    <script src="assets/js/ace-extra.min.js"></script>
+
+    <h1>
+        Archive    <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Tresorerie
+        </small></h1>
+
+    <table border="2" bgcolor="aqua">
+        <div class="row">
+            <div class="col-xs-12" >
+                <table id="simple-table" class="table  table-bordered table-hover" >
+                    <thead>
+                    <tr>
+                        <th> id Archive Tresorerie  </th>
+                        <th> prenom user </th>
+                        <th> Montant </th>
+                        <th> Type </th>
+
+
+
+
+
+
+                    </tr>
+                    </tr>
+                    {% for ArchiveTresorerie in ArchiveTresorerie %}
+                        <tr>
+                            <td> {{ ArchiveTresorerie.idtresorie }}</td>
+                            <td>{{ ArchiveTresorerie.user.prenom }}</td>
+                            <td> {{ ArchiveTresorerie.montant }}</td>
+                            <td> {{ ArchiveTresorerie.type }}</td>
+
+
+
+                        </tr>
+
+
+
+
+
+
+
+
+
+
+                    {% endfor %}
+                </table>
+
+{% endblock %}

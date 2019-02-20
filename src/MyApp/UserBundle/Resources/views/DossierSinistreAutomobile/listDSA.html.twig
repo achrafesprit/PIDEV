@@ -1,0 +1,103 @@
+{% extends "layout.html.twig" %}
+{% block content1 %}
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/font-awesome/4.5.0/css/font-awesome.min.css')}}" />
+
+    <!-- page specific plugin styles -->
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/fonts.googleapis.com.css')}}" />
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace.min.css')}}" class="ace-main-stylesheet" id="main-ace-style" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace-part2.min.css')}}" class="ace-main-stylesheet" />
+    <![endif]-->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace-skins.min.css')}}" />
+    <link rel="stylesheet" href="asset/css/ace-rtl.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+    <script src="assets/js/ace-extra.min.js"></script>
+
+    <h1>
+        Dossier    <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Sinistres &amp; Dynamic Tables
+        </small></h1>
+
+    <table border="2" bgcolor="aqua">
+        <div class="row">
+            <div class="col-xs-12" >
+                <table id="simple-table" class="table  table-bordered table-hover" >
+                    <thead>
+                    <tr>
+                        <th> id de dossier sinistre  </th>
+                        <th> id desinistre automobile </th>
+                        <th> id de user </th>
+                        <th> contrat tout risque </th>
+                        <th> contrat standard</th>
+                        <th> entré dans l'interdit </th>
+                        <th> depaser stop ou feu  </th>
+                        <th> depasser vitesse maximale </th>
+                        <th> point de choc sur le moteur  </th>
+                        <th> point de choc sur la carcasse  </th>
+                        <th> remarquage </th>
+                        <th> fracture</th>
+                        <th> cas d'accident mortelle</th>
+                        <th> cas d'hemoragie</th>
+                        <th> Modifier</th>
+                        <th> supprimer</th>
+                        <th> rembourser</th>
+
+
+
+
+
+                    </tr>
+                    </tr>
+                    {% for DossierSinistreAutomobile in DossierSinistreAutomobile %}
+                        <tr>
+                            <td> {{ DossierSinistreAutomobile.idDossierSinistreAutomobile }}</td>
+                            <td>
+                                {{ DossierSinistreAutomobile.SinistreAutomobile.idautomobile  }}</td>
+                            <td> {{ DossierSinistreAutomobile.user.id }}</td>
+                            <td> {{ DossierSinistreAutomobile.toutrsique }}</td>
+                            <td> {{ DossierSinistreAutomobile.standard }}</td>
+                            <td> {{ DossierSinistreAutomobile.entreeinterdit }}</td>
+                            <td> {{ DossierSinistreAutomobile.depassefeuoustop }}</td>
+                            <td> {{ DossierSinistreAutomobile.depassevitessemaximale }}</td>
+                            <td> {{ DossierSinistreAutomobile.moteur }}</td>
+                            <td>{{ DossierSinistreAutomobile.carcase   }}</td>
+                            <td> {{ DossierSinistreAutomobile.remarquage }}</td>
+                            <td> {{ DossierSinistreAutomobile.fracture }}</td>
+                            <td> {{ DossierSinistreAutomobile.accidentmortelle }}</td>
+                            <td> {{ DossierSinistreAutomobile.hemoragie }}</td>
+                            <td> <a href=" {{ path("Supprimer_Dossiersinistreautomobile",{'id': DossierSinistreAutomobile.idDossierSinistreAutomobile} ) }}"> Supprimer</a> </td>
+                            <td> <a href=" {{ path("Modifier_Dossiersinistreautomobile",{'id': DossierSinistreAutomobile.idDossierSinistreAutomobile} ) }}"> Modifier</a> </td>
+                            <td> <a href=" {{ path("AjouterRemboursmementautomobile",{'id': DossierSinistreAutomobile.SinistreAutomobile.idautomobile} ) }}"> Rembourser</a> </td>
+
+
+                        </tr>
+
+
+
+
+
+
+
+
+
+
+                    {% endfor %}
+                </table>
+
+{% endblock %}

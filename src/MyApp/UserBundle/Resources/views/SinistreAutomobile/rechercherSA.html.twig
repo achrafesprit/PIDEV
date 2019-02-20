@@ -1,0 +1,65 @@
+<h4> Rechercher voiture </h4>
+
+<form method="post">
+    <label> COUT :</label>
+    <input type="text" name="cout"> <br>
+    <input type="submit" value="RechercherSA">
+</form>
+
+<table border="2" bgcolor="aqua">
+    <div class="row">
+        <div class="col-xs-12" >
+            <table id="simple-table" class="table  table-bordered table-hover" >
+
+                <tr>
+                    <th> id de sinistre  </th>
+                    <th> date sinistre </th>
+                    <th> localisation de sinistre </th>
+                    <th> description de sinistre </th>
+                    <th> les degats humaines</th>
+                    <th> le bien endommagé </th>
+                    <th> ajouter constat  </th>
+
+                    <th class="hidden-480"> user  </th>
+                    <th> date d'ajout au system  </th>
+                    <th> Supprimer </th>
+                    <th> Modifier
+
+
+
+                </tr>
+                </tr>
+                {% for SinistreAutomobile in SinistreAutomobile %}
+                    <tr>
+                        <td> {{ SinistreAutomobile.idautomobile }}</td>
+                        <td>                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                            {{ SinistreAutomobile.datesinistre | date("y/m/d")  }}</td>
+                        <td> {{ SinistreAutomobile.localisation }}</td>
+                        <td> {{ SinistreAutomobile.description }}</td>
+                        <td> {{ SinistreAutomobile.degathumaine }}</td>
+                        <td> {{ SinistreAutomobile.bienendommage }}</td>
+
+
+                        <td><img src="{{ asset('images/') }}{{ SinistreAutomobile.constat }}" style="width: 50px;height: 50px" ></td>
+
+                        <td> {{ SinistreAutomobile.User.id }}</td>
+                        <td>                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                            {{ SinistreAutomobile.dateajout | date("y/m/d")  }}</td>
+                        <td> <a href=" {{ path("Supprimer_sinistreautomobile",{'id': SinistreAutomobile.idautomobile} ) }}"> Supprimer</a> </td>
+                        <td> <a href=" {{ path("Modifier_sinistreautomobile",{'id': SinistreAutomobile.idautomobile} ) }}"> Modifier</a> </td>
+                    </tr>
+
+
+
+
+
+
+
+
+
+
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</table>

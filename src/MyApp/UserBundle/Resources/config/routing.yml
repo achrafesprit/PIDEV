@@ -1,0 +1,88 @@
+my_app_user_homepage:
+    path:     /
+    defaults: { _controller: MyAppUserBundle:Default:index }
+homea:
+    path:     /homea
+    defaults: { _controller: MyAppUserBundle:Security:agent }
+redirect:
+    path:     /home
+    defaults: { _controller: MyAppUserBundle:Security:redirect }
+base_homepage:
+    path:     /base
+    defaults: { _controller: MyAppUserBundle:Default:index }
+homeadmin:
+    path:     /admin
+    defaults: { _controller: MyAppUserBundle:Default:indexadmin }
+
+Afficher_sinistreautomobile:
+    path:     /afficherSA
+    defaults: { _controller: MyAppUserBundle:SinistreAutomobile:listSA }
+Ajouter_sinistreautomobile:
+    path:     /ajouterSA
+    defaults: { _controller: MyAppUserBundle:SinistreAutomobile:ajouterSA }
+Afficher_Dossiersinistreautomobile:
+    path:     /afficherDSA
+    defaults: { _controller: MyAppUserBundle:DossierSinistreAutomobile:listDSA }
+Ajouter_Dossiersinistreautomobile:
+    path:     /ajouterDSA
+    defaults: { _controller: MyAppUserBundle:DossierSinistreAutomobile:ajouterDSA }
+Supprimer_sinistreautomobile:
+    path:     /SupprimerSA
+    defaults: { _controller: MyAppUserBundle:SinistreAutomobile:supprimerSA }
+
+Modifier_sinistreautomobile:
+    path:     /ModifierSA
+    defaults: { _controller: MyAppUserBundle:SinistreAutomobile:modifierSA }
+Supprimer_Dossiersinistreautomobile:
+    path:     /supprimerDSA
+    defaults: { _controller: MyAppUserBundle:DossierSinistreAutomobile:supprimerDSA }
+Modifier_Dossiersinistreautomobile:
+    path:     /modifierDSA
+    defaults: { _controller: MyAppUserBundle:DossierSinistreAutomobile:modifierDSA }
+Chercher_sinistreautomobile:
+    path:     /searchSA
+    defaults: { _controller: MyAppUserBundle:SinistreAutomobile:rechercherSA }
+Rechercher_Dossiersinistreautomobile:
+    path:     /searchDSA
+    defaults: { _controller: MyAppUserBundle:DossierSinistreAutomobile:rechercherDSA }
+AjouterRemboursmementautomobile:
+    path:     /ajouterRA
+    defaults: { _controller: MyAppUserBundle:RemboursementAutomobile:ajouterRA }
+ModifierRemboursmemenautomobile:
+    path:     /modifierRA
+    defaults: { _controller: MyAppUserBundle:RemboursementAutomobile:modifierRA }
+SupprimerRemboursmemeneautomobile:
+    path:     /supprimerRA
+    defaults: { _controller: MyAppUserBundle:RemboursementAutomobile:supprimerRA }
+afficher_constat:
+    path:     /afficherC
+    defaults: { _controller: MyAppUserBundle:SinistreAutomobile:afficherC }
+Afficher_Remboursement:
+    path:     /listRA
+    defaults: { _controller: MyAppUserBundle:RemboursementAutomobile:listRA }
+Afficher_RAA:
+    path:     /listRAA
+    defaults: { _controller: MyAppUserBundle:RemboursementAutomobile:listRAA }
+RembourserRemboursmemeneautomobile:
+    path:     /rembourserRA
+    defaults: { _controller: MyAppUserBundle:RemboursementAutomobile:rembourserRA }
+ListeDesRemboursementsEffectue:
+    path:     /listRE
+    defaults: { _controller: MyAppUserBundle:RemboursementAutomobile:listRE }
+ListeArachive:
+    path:     /listAR
+    defaults: { _controller: MyAppUserBundle:Tresorerie:listAR }
+ListeTresorerie:
+    path:     /listTR
+    defaults: { _controller: MyAppUserBundle:Tresorerie:listTR }
+
+
+
+
+
+
+
+
+
+
+
