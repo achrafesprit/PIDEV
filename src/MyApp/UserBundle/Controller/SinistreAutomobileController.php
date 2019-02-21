@@ -13,6 +13,10 @@ use MyApp\UserBundle\Entity\SinistreAutomobile;
 use MyApp\UserBundle\Form\SinistreAutomobileType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class SinistreAutomobileController  extends Controller
 {
@@ -86,8 +90,9 @@ class SinistreAutomobileController  extends Controller
 
 
 
+
             $em = $this->getDoctrine()->getManager();
-            $SinistreAutomobile = $em->getRepository("MyAppUserBundle:SinistreAutomobile")->findBy(array("cout " => $cout));
+            $SinistreAutomobile = $em->getRepository("MyAppUserBundle:SinistreAutomobile")->findBy(array('cout' => $cout));
             return $this->render("MyAppUserBundle:SinistreAutomobile:rechercherSA.html.twig", ["SinistreAutomobile" => $SinistreAutomobile]);
         }
 
@@ -100,6 +105,19 @@ class SinistreAutomobileController  extends Controller
 
 
         return $this->render("MyAppUserBundle:SinistreAutomobile:afficherC.html.twig", ["id" => $id]);
+    }
+
+    public function localiserAction(Request $request){
+        $encoders = array(new XmlEncoder(), new JsonEncoder());
+        $normalizers = array(new ObjectNormalizer());
+
+        $serializer = new Serializer($normalizers, $encoders);
+        $em = $this->getDoctrine()->getManager();
+        $id = $request->get("id");
+        $latLng = $em->getRepository("MyAppUserBundle:SinistreAutomobile")->findByidautomobile($id);
+        $response = $serializer->serialize($latLng, 'json');
+
+        return $this->render('MyAppUserBundle:SinistreAutomobile:localiser.html.twig', array("locations" => $response));
     }
 
 }

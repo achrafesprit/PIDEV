@@ -69,7 +69,73 @@ class SinistreAutomobile
      * @ORM\Column(type="float")
      */
     private $cout;
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="latitude", type="float", nullable=true)
+     */
+    private $latitude;
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="longitude", type="float", nullable=true)
+     */
+    private $longitude;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Address", type="string", length=255)
+     */
+    private $address;
+
+    /**
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param string $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return float
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * @param float $latitude
+     */
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+    }
+
+    /**
+     * @return float
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+
+    /**
+     * @param float $longitude
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+    }
     /**
      * @return mixed
      */
@@ -231,15 +297,16 @@ class SinistreAutomobile
         $this->file = $file;
     }
 
-
-    public function getWebPath(){
-        return null===$this->constat ? null : $this->getUploadDir.'/'.$this->constat;
-    }
-    protected  function getUploadRootDir(){
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();  }
     protected function  getUploadDir(){
         return 'images';
     }
+    public function getWebPath(){
+        return null===$this->constat ? null : $this->getUploadDir().'/'.$this->constat;
+    }
+
+    protected  function getUploadRootDir(){
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();  }
+
     public  function  uploadProfilePicture()
     {
         $this->file->move($this->getUploadRootDir(),$this->file->getClientOriginalName());

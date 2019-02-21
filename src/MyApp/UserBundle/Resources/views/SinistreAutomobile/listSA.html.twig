@@ -2,7 +2,8 @@
 {% block content1 %}
 
     <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/bootstrap.min.css') }}"
+          xmlns="http://www.w3.org/1999/html"/>
     <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/font-awesome/4.5.0/css/font-awesome.min.css')}}" />
 
     <!-- page specific plugin styles -->
@@ -37,6 +38,8 @@
     <table border="2" bgcolor="aqua">
         <div class="row">
             <div class="col-xs-12" >
+                <input type="text" name="recherche" class="text" id="recherche"/>
+
                 <table id="simple-table" class="table  table-bordered table-hover" >
                     <thead>
                     <tr>
@@ -75,6 +78,8 @@
                                 {{ SinistreAutomobile.dateajout | date("y/m/d")  }}</td>
                             <td> <a href=" {{ path("Supprimer_sinistreautomobile",{'id': SinistreAutomobile.idautomobile} ) }}"> Supprimer</a> </td>
                             <td> <a href=" {{ path("Modifier_sinistreautomobile",{'id': SinistreAutomobile.idautomobile} ) }}"> Modifier</a> </td>
+                            <td> <a href=" {{ path("Localisation",{'id': SinistreAutomobile.idautomobile} ) }}"> Localiser</a> </td>
+
                         </tr>
 
 

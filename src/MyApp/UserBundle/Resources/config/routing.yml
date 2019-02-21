@@ -45,6 +45,22 @@ Chercher_sinistreautomobile:
 Rechercher_Dossiersinistreautomobile:
     path:     /searchDSA
     defaults: { _controller: MyAppUserBundle:DossierSinistreAutomobile:rechercherDSA }
+
+afficher_constat:
+    path:     /afficherC
+    defaults: { _controller: MyAppUserBundle:SinistreAutomobile:afficherC }
+Localisation:
+    path:     /localiser
+    defaults: { _controller: MyAppUserBundle:SinistreAutomobile:localiser }
+
+
+
+
+
+
+
+
+
 AjouterRemboursmementautomobile:
     path:     /ajouterRA
     defaults: { _controller: MyAppUserBundle:RemboursementAutomobile:ajouterRA }
@@ -54,9 +70,6 @@ ModifierRemboursmemenautomobile:
 SupprimerRemboursmemeneautomobile:
     path:     /supprimerRA
     defaults: { _controller: MyAppUserBundle:RemboursementAutomobile:supprimerRA }
-afficher_constat:
-    path:     /afficherC
-    defaults: { _controller: MyAppUserBundle:SinistreAutomobile:afficherC }
 Afficher_Remboursement:
     path:     /listRA
     defaults: { _controller: MyAppUserBundle:RemboursementAutomobile:listRA }
