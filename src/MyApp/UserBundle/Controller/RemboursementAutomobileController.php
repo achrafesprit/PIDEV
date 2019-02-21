@@ -36,7 +36,7 @@ class RemboursementAutomobileController extends Controller
             $em1->persist($RemboursementAutomobile);
             $em1->flush();
 
-            return $this->redirectToRoute("Afficher_sinistreautomobile");
+            return $this->redirectToRoute("homea");
         }
 
         return $this->render("MyAppUserBundle:RemboursementAutomobile:ajouterRA.html.twig", array("Form" => $form->createView()));
@@ -80,7 +80,7 @@ class RemboursementAutomobileController extends Controller
     public function listRAAAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $RemboursementAutomobile = $em->getRepository("MyAppUserBundle:RemboursementAutomobile")->findAll();
+        $RemboursementAutomobile = $em->getRepository("MyAppUserBundle:RemboursementAutomobile")->findBy(array('etat'=>"Non Remboursé"));
         return $this->render("MyAppUserBundle:RemboursementAutomobile:listRAA.html.twig", ["RemboursementAutomobile" => $RemboursementAutomobile]);
     }
     public function  rembourserRAAction(Request $request){
@@ -101,23 +101,11 @@ class RemboursementAutomobileController extends Controller
         $em->persist($ArchiveTresorerie);
         $em->flush();
 
-
-
-
         $Tresorerie= $em->getRepository("MyAppUserBundle:Tresorerie")->find(1);
         $Tresorerie->setMontant($Tresorerie->getMontant()-$RemboursementAutomobile-> getRemboursementfinal());
         $em = $this->getDoctrine()->getManager();
         $em->persist($Tresorerie);
         $em->flush();
-
-
-
-
-
-
-
-
-
 
         $em = $this->getDoctrine()->getManager();
         $RemboursementAutomobile = $em->getRepository("MyAppUserBundle:RemboursementAutomobile")->findBy(array('etat'=>"Remboursé"));
