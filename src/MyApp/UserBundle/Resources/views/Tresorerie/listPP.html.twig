@@ -1,0 +1,91 @@
+
+{% extends "layout.html.twig" %}
+{% block content1 %}
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/font-awesome/4.5.0/css/font-awesome.min.css')}}" />
+
+    <!-- page specific plugin styles -->
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/fonts.googleapis.com.css')}}" />
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace.min.css')}}" class="ace-main-stylesheet" id="main-ace-style" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace-part2.min.css')}}" class="ace-main-stylesheet" />
+    <![endif]-->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace-skins.min.css')}}" />
+    <link rel="stylesheet" href="asset/css/ace-rtl.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+    <script src="assets/js/ace-extra.min.js"></script>
+
+    <h1>
+        Dossier    <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Tresorerie &amp; Tresorerie
+        </small></h1>
+
+    <table border="2" bgcolor="aqua">
+        <div class="row">
+            <div class="col-xs-12" >
+                <table id="simple-table" class="table  table-bordered table-hover" >
+                    <thead>
+                    <tr>
+                        <th> idcontratautomobile  </th>
+                        <th> datedebut </th>
+                        <th> datefin </th>
+
+                        private $idcontratautomobile;
+                        /**
+                        * @ORM\Column(type="date")
+                        */
+                        public $datedebut;
+                        /**
+                        * @ORM\Column(type="date")
+                        */
+                        public $datefin;
+
+
+
+
+
+
+
+                    </tr>
+                    </tr>
+                    {% for Contrats in Contrats %}
+                        <tr>
+                            <td> {{Contrats.idcontratautomobile }}</td>
+                            <td>{{ Contrats.datedebut|date()}}</td>
+                            <td>{{ Contrats.datefin|date()}}</td>
+
+
+
+
+
+
+                        </tr>
+
+
+
+
+
+
+
+
+
+
+                    {% endfor %}
+                </table>
+
+{% endblock %}

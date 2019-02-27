@@ -38,14 +38,17 @@ use Symfony\Component\Validator\Constraints as Assert;
 
     /**
      * @ORM\Column(type="float")
+     *
+     * @Assert\Expression("value >=500")
      */
+
     private $estimation;
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime",nullable=true)
      */
     private $dateremboursement;
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float",nullable=true)
      */
     private $remboursementfinal;
     /**

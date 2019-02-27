@@ -1,0 +1,128 @@
+{% extends "layout.html.twig" %}
+{% block content1 %}
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/bootstrap.min.css') }}"
+          xmlns="http://www.w3.org/1999/html"/>
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/font-awesome/4.5.0/css/font-awesome.min.css')}}" />
+
+    <!-- page specific plugin styles -->
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/fonts.googleapis.com.css')}}" />
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace.min.css')}}" class="ace-main-stylesheet" id="main-ace-style" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace-part2.min.css')}}" class="ace-main-stylesheet" />
+    <![endif]-->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace-skins.min.css')}}" />
+    <link rel="stylesheet" href="asset/css/ace-rtl.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+    <script src="assets/js/ace-extra.min.js"></script>
+
+    <h1>
+        Liste dess nistres    <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Static &amp; Dynamic Tables
+        </small></h1>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+    <div class="container">
+        <h2>Filterable Table</h2>
+        <p>Type something in the input field to search the table for first names, last names or emails:</p>
+        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+        <br>
+        <table id="simple-table" class="table  table-bordered table-hover" >
+            <thead>
+            <tr>
+                <th> id de sinistre  </th>
+                <th> date sinistre </th>
+                <th> localisation de sinistre </th>
+                <th> description de sinistre </th>
+                <th> les degats humaines</th>
+                <th> le bien endommagé </th>
+                <th> ajouter constat  </th>
+                <th> montant payé lors de l'accident  </th>
+                <th class="hidden-480"> user  </th>
+                <th> date d'ajout au system  </th>
+                <th> Supprimer </th>
+                <th> Modifier
+
+                </th>
+            </tr></thead>
+
+            </tr>
+            </tr>
+            <tbody id="myTable">
+            {% for SinistreAutomobile in SinistreAutomobile %}
+                <tr>
+                    <td> {{ SinistreAutomobile.idautomobile }}</td>
+                    <td>                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                        {{ SinistreAutomobile.datesinistre | date("y/m/d")  }}</td>
+                    <td> {{ SinistreAutomobile.localisation }}</td>
+                    <td> {{ SinistreAutomobile.description }}</td>
+                    <td> {{ SinistreAutomobile.degathumaine }}</td>
+                    <td> {{ SinistreAutomobile.bienendommage }}</td>
+
+
+                    <td><a href=" {{ path("afficher_constat",{'id': SinistreAutomobile.constat} ) }}"><img src="{{ asset('images/') }}{{ SinistreAutomobile.constat }}" style="width: 50px;height: 50px" ></a></td>
+                    <td> {{ SinistreAutomobile.cout }}</td>
+                    <td> {{ SinistreAutomobile.User.id }}</td>
+                    <td>                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                        {{ SinistreAutomobile.dateajout | date("y/m/d")  }}</td>
+                    <td> <a href=" {{ path("Supprimer_sinistreautomobile",{'id': SinistreAutomobile.idautomobile} ) }}"> Supprimer</a> </td>
+                    <td> <a href=" {{ path("Modifier_sinistreautomobile",{'id': SinistreAutomobile.idautomobile} ) }}"> Modifier</a> </td>
+                    <td> <a href=" {{ path("Localisation",{'id': SinistreAutomobile.idautomobile} ) }}"> Localiser</a> </td>
+
+                </tr>
+
+
+
+
+
+
+
+
+
+
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+    </body>
+    </html>
+{% endblock %}

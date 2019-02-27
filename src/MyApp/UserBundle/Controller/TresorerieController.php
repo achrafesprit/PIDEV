@@ -12,7 +12,8 @@ namespace MyApp\UserBundle\Controller;
 use MyApp\UserBundle\Entity\ContratAutomobile;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
+use MyApp\UserBundle\Entity\Tresorerie;
+use MyApp\UserBundle\Entity\TresorerieRepository;
 
 class TresorerieController extends Controller
 {
@@ -52,7 +53,7 @@ class TresorerieController extends Controller
 
         $notif=0;
         $em = $this->getDoctrine()->getManager();
-        $Contrats= $em->getRepository("MyAppUserBundle:ContratAutomobile")->findAll();
+        $Contrats= $em->getRepository("MyAppUserBundle:ContratAutomobile")->findContratPrevus();
         foreach($Contrats as $Contrat){
 
                 if ($Contrat->getTypecontratAuto()=="Standard"){
@@ -65,7 +66,14 @@ class TresorerieController extends Controller
 
         return $notif;
     }
+    public function listPPAction()
+    {
 
+        $em = $this->getDoctrine()->getManager();
+        $Contrats= $em->getRepository("MyAppUserBundle:ContratAutomobile")->findContratPrevus();
+        return $this->render("MyAppUserBundle:Tresorerie:listPP.html.twig", ["Contrats" => $Contrats]);
+
+    }
 
 
 

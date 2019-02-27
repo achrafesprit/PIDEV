@@ -1,3 +1,7 @@
+sarah_back:
+    resource: "@SarahBackBundle/Resources/config/routing.yml"
+    prefix:   /
+
 my_app_user:
     resource: "@MyAppUserBundle/Resources/config/routing.yml"
     prefix:   /
@@ -7,3 +11,7 @@ app:
     type: annotation
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix:   /message

@@ -103,6 +103,31 @@ class ArchiveTresorerie
         $this->type = $type;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param mixed $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+
+
+
+
+
+
 
 
 

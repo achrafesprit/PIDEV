@@ -1,0 +1,107 @@
+{% extends 'layout.html.twig' %}
+{% block content1 %} <tr> </tr>
+
+
+
+
+
+
+    <table border="1" >
+    <h3>
+        Liste des Promotions   </h3>
+
+    <tr>
+
+
+        <div class="list-carousel fl-wrap card-listing ">
+            <!--listing-carousel-->
+            <div class="listing-carousel  fl-wrap ">
+                {% for promotion in promotions %}
+                    <!--slick-slide-item-->
+                    <div class="slick-slide-item">
+                        <!-- listing-item -->
+                        <div class="listing-item">
+
+
+                            <!-- carousel -->
+
+
+                            <article class="geodir-category-listing fl-wrap">
+                                <div class="geodir-category-img">
+                                    <img src="{{ asset('images/') }}{{ promotion.nomImage }}" alt="">
+                                    <div class="overlay"></div>
+
+                                </div>
+                                <div class="geodir-category-content fl-wrap">
+
+                                    <a href=" {{ path("sarah_back_promotion_choisir",{'id': promotion.id} ) }}"> Obtenir</a>
+
+
+                                    <div class="listing-avatar"><a href={{ asset('templatefront/pages/author-single.html') }}> ></a>
+                                        <span class="avatar-tooltip">Added By  <strong>Lisa Smith</strong></span>
+                                    </div>
+                                    <h3><a href={{ asset('templatefront/pages/listing-single.html') }}>Offre assurance {{ promotion.produit.type }}</a></h3>
+                                    <p> offre sur assurance  {{ promotion.produit.nom }} d'une remise de {{ promotion.PourcentageRemise }}% valable au {{ promotion.DateFinPromotion | date("y/m/d")}}   </p>
+                                    <div class="geodir-category-options fl-wrap">
+                                        <div class="listing-rating card-popup-rainingvis" data-starrating2="5">
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <!-- listing-item end-->
+                    </div>
+                    <!--slick-slide-item end-->
+                    <!--slick-slide-item-->
+                {% endfor %}
+
+            </div>
+    <tr/>
+
+
+
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/font-awesome/4.5.0/css/font-awesome.min.css')}}" />
+
+    <!-- page specific plugin styles -->
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/fonts.googleapis.com.css')}}" />
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace.min.css')}}" class="ace-main-stylesheet" id="main-ace-style" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace-part2.min.css')}}" class="ace-main-stylesheet" />
+    <![endif]-->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace-skins.min.css')}}" />
+    <link rel="stylesheet" href="asset/css/ace-rtl.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+    <script src="assets/js/ace-extra.min.js"></script>
+
+
+    <table border="2" bgcolor="aqua">
+        <div class="row">
+            <div class="col-xs-12" >
+                <table id="simple-table" class="table  table-bordered table-hover" >
+                    <thead>
+                    <tr>
+                        <table border="2" bgcolor="aqua">
+                            <div class="row">
+                                <div class="col-xs-12" >
+                                    <table id="simple-table" class="table  table-bordered table-hover" >
+                                        <thead>
+
+
+{% endblock %}

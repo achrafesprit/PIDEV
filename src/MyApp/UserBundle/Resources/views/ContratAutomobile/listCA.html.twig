@@ -1,0 +1,101 @@
+{% extends "layout.html.twig" %}
+{% block content1 %}
+
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/font-awesome/4.5.0/css/font-awesome.min.css')}}" />
+
+    <!-- page specific plugin styles -->
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/fonts.googleapis.com.css')}}" />
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace.min.css')}}" class="ace-main-stylesheet" id="main-ace-style" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace-part2.min.css')}}" class="ace-main-stylesheet" />
+    <![endif]-->
+    <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/ace-skins.min.css')}}" />
+    <link rel="stylesheet" href="asset/css/ace-rtl.min.css" />
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+    <script src="assets/js/ace-extra.min.js"></script>
+
+    <h1>
+        Liste des Contrats    <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+        </small></h1>
+
+    <table border="2" bgcolor="aqua">
+        <div class="row">
+            <div class="col-xs-12" >
+                <table id="simple-table" class="table  table-bordered table-hover" >
+
+                    <tr>
+                        <th class="hidden-480"> id contrat Automobile  </th>
+                        <th class="hidden-480"> user  </th>
+                        <th> Type Contrat </th>
+                        <th> Couverture Assurances </th>
+                        <th> Date mise circulation </th>
+                        <th> Marque </th>
+
+
+                        <th> Carte Grise</th>
+                        <th> Releve d information</th>
+
+
+
+                        <th> Date Debut Contrat </th>
+                        <th> Date Fin Contrat </th>
+                        <th> Etat </th>
+
+                        <th> Supprimer </th>
+                        <th> Modifier </th>
+
+
+
+                    </tr>
+                    </tr>
+                    {% for ContratAutomobile in ContratAutomobile %}
+                        <tr>
+                            <td> {{ ContratAutomobile.idcontratautomobile }}</td>
+                            <td> {{ ContratAutomobile.user }}</td>
+                            <td> {{ ContratAutomobile.typecontratAuto }}</td>
+                            <td> {{ ContratAutomobile.couvertureAssurance|json_encode()}}</td>
+                            <td> {{ ContratAutomobile.dateMiseCirculation| date("y/m/d") }}</td>
+                            <td> {{ ContratAutomobile.marque }}</td>
+
+
+                            <td><a href=" {{ path("afficher_image",{'i': ContratAutomobile.CarteGrise} ) }}"><img src="{{ asset('images/') }}{{ ContratAutomobile.CarteGrise }}" style="width: 50px;height: 50px" ></a></td>
+                            <td><a href="{{ vich_uploader_asset(ContratAutomobile, 'imageFile' ,'MyApp\\UserBundle\\Entity\\ContratAutomobile' )}}"/>Voir Releve d information</a></td>
+                            <td>                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                                {{ ContratAutomobile.datedebut | date("y/m/d")  }}</td>
+                            <td>                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                                {{ ContratAutomobile.datefin | date("y/m/d")  }}</td>
+                            <td> {{ ContratAutomobile.etat }}</td>
+
+
+                            <td> <a href=" {{ path("Supprimer_ContratAuto",{'id': ContratAutomobile.idcontratautomobile} ) }}"> Supprimer</a> </td>
+                            <td> <a href=" {{ path("Modifier_ContratAuto",{'id': ContratAutomobile.idcontratautomobile} ) }}"> Modifier</a> </td>
+                        </tr>
+
+
+
+
+
+
+
+
+
+
+                    {% endfor %}
+                </table>
+
+{% endblock %}

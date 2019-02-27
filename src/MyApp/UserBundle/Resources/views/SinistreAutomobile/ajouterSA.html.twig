@@ -1,9 +1,122 @@
 {% extends "layout.html.twig" %}
+
+
+
 {% block content1 %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("form").submit(function () {
 
-    <h3> Ajouter Sinistre </h3>
+            var a =0;
+            var b =0;
+            var error="";
+            var newLine = "\r\n";
+            var date_debut =new Date();
+            var date_fin =new Date();
+            date_debut=$(".debut").val();
+            date_fin=$(".fin").val();
+            if(date_debut>=date_fin)
+            {
+                b=1;
+                error+=" date fin doit etre superieur a la date debut  ";
+                error+= newLine;
+            }
+            var date_today =new Date().toISOString().slice(0,10);;
+            var date_debutt =new Date();
+            date_debutt=$(".debut").val();
+            if(date_debutt<date_today)
+            {
+                a=1;
+                error+=" date debut doit etre superieur a la date d aujourdhui  ";
+                error+= newLine;
+            }
+            if(a==1||b==1){
+                alert(error);
+                return false;
+            }
+        });
 
-    {{ form(Form) }}
+        $(".fin").blur(function () {
+            var date_debut =new Date();
+            var date_fin =new Date();
+            date_debut=$(".debut").val();
+            date_fin=$(".fin").val();
+            if(date_debut>=date_fin)
+            {
+                alert("date");
+                $(".lfin").show()
+            }
+            else {
+                $(".lfin").hide();
+            }
+        })
+        $(".debut").blur(function () {
+            var date_today =new Date().toISOString().slice(0,10);
+            var date_debutt =new Date();
+            date_debutt=$(".debut").val();
+            if(date_debutt<date_today)
+            {
+                alert("date debut");
+                $(".ldebut").show()
+            }
+            else {
+                $(".ldebut").hide();
+            }
+        })
+
+    });
+
+</script>
+    <link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundle/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundlecss/plugins.css">
+    <link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundlecss/style.css">
+    <link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundlecss/color.css">
+<link rel="stylesheet" href="assets/css/bootstrap-datepicker3.min.css">
+    <!--=============== favicons ===============-->
+<div id="wrapper">
+    <!--content -->
+    <div class="content">
+        <!--section -->
+        <section id="sec1">
+            <!-- container -->
+            <div class="container">
+
+<div class="profile-edit-header fl-wrap">
+    <h4>Location /  Contacts</h4>
+</div>
+<h1> Ajouter Sinistre </h1>
+
+
+    <div class="profile-edit-container add-list-container">
+
+    <div class="custom-form">
+        <div class="row">
+            <div class="col-xs-8 col-sm-11">
+                <div class="input-group">
+
+
+
+{{ form(Form) }}    <div/>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+
+
+
 
 
 {% endblock %}

@@ -35,63 +35,94 @@
             Static &amp; Dynamic Tables
         </small></h1>
 
-    <table border="2" bgcolor="aqua">
-        <div class="row">
-            <div class="col-xs-12" >
-                <input type="text" name="recherche" class="text" id="recherche"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-                <table id="simple-table" class="table  table-bordered table-hover" >
-                    <thead>
-                    <tr>
-                        <th> id de sinistre  </th>
-                        <th> date sinistre </th>
-                        <th> localisation de sinistre </th>
-                        <th> description de sinistre </th>
-                        <th> les degats humaines</th>
-                        <th> le bien endommagé </th>
-                        <th> ajouter constat  </th>
-                        <th> montant payé lors de l'accident  </th>
-                        <th class="hidden-480"> user  </th>
-                        <th> date d'ajout au system  </th>
-                        <th> Supprimer </th>
-                        <th> Modifier
+<div class="container">
+    <h2>Filterable Table</h2>
+    <p>Type something in the input field to search the table for first names, last names or emails:</p>
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+    <br>
+    <table id="simple-table" class="table  table-bordered table-hover" >
+        <thead>
+        <tr>
+            <th> id de sinistre  </th>
+            <th> date sinistre </th>
+            <th> localisation de sinistre </th>
+            <th> description de sinistre </th>
+            <th> les degats humaines</th>
+            <th> le bien endommagé </th>
+            <th> ajouter constat  </th>
+            <th> montant payé lors de l'accident  </th>
+            <th class="hidden-480"> user  </th>
+            <th> date d'ajout au system  </th>
+            <th> Supprimer </th>
+            <th> Modifier
 
+            </th>
+        </tr></thead>
 
-
-                    </tr>
-                    </tr>
-                    {% for SinistreAutomobile in SinistreAutomobile %}
-                        <tr>
-                            <td> {{ SinistreAutomobile.idautomobile }}</td>
-                            <td>                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-                                {{ SinistreAutomobile.datesinistre | date("y/m/d")  }}</td>
-                            <td> {{ SinistreAutomobile.localisation }}</td>
-                            <td> {{ SinistreAutomobile.description }}</td>
-                            <td> {{ SinistreAutomobile.degathumaine }}</td>
-                            <td> {{ SinistreAutomobile.bienendommage }}</td>
-
-
-                            <td><a href=" {{ path("afficher_constat",{'id': SinistreAutomobile.constat} ) }}"><img src="{{ asset('images/') }}{{ SinistreAutomobile.constat }}" style="width: 50px;height: 50px" ></a></td>
-                            <td> {{ SinistreAutomobile.cout }}</td>
-                            <td> {{ SinistreAutomobile.User.id }}</td>
-                            <td>                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-                                {{ SinistreAutomobile.dateajout | date("y/m/d")  }}</td>
-                            <td> <a href=" {{ path("Supprimer_sinistreautomobile",{'id': SinistreAutomobile.idautomobile} ) }}"> Supprimer</a> </td>
-                            <td> <a href=" {{ path("Modifier_sinistreautomobile",{'id': SinistreAutomobile.idautomobile} ) }}"> Modifier</a> </td>
-                            <td> <a href=" {{ path("Localisation",{'id': SinistreAutomobile.idautomobile} ) }}"> Localiser</a> </td>
-
-                        </tr>
-
-
-
-
+        </tr>
+        </tr>
+        <tbody id="myTable">
+        {% for SinistreAutomobile in SinistreAutomobile %}
+            <tr>
+                <td> {{ SinistreAutomobile.idautomobile }}</td>
+                <td>                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                    {{ SinistreAutomobile.datesinistre | date("y/m/d")  }}</td>
+                <td> {{ SinistreAutomobile.localisation }}</td>
+                <td> {{ SinistreAutomobile.description }}</td>
+                <td> {{ SinistreAutomobile.degathumaine }}</td>
+                <td> {{ SinistreAutomobile.bienendommage }}</td>
 
 
+                <td><a href=" {{ path("afficher_constat",{'id': SinistreAutomobile.constat} ) }}"><img src="{{ asset('images/') }}{{ SinistreAutomobile.constat }}" style="width: 50px;height: 50px" ></a></td>
+                <td> {{ SinistreAutomobile.cout }}</td>
+                <td> {{ SinistreAutomobile.User.id }}</td>
+                <td>                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                    {{ SinistreAutomobile.dateajout | date("y/m/d")  }}</td>
+                <td> <a href=" {{ path("Supprimer_sinistreautomobile",{'id': SinistreAutomobile.idautomobile} ) }}"> Supprimer</a> </td>
+                <td> <a href=" {{ path("Modifier_sinistreautomobile",{'id': SinistreAutomobile.idautomobile} ) }}"> Modifier</a> </td>
+                <td> <a href=" {{ path("Localisation",{'id': SinistreAutomobile.idautomobile} ) }}"> Localiser</a> </td>
+
+            </tr>
 
 
 
 
-                    {% endfor %}
-                </table>
 
+
+
+
+
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
 {% endblock %}

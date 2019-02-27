@@ -18,6 +18,14 @@ class SinistreAutomobileRepository extends EntityRepository
             ->setParameter('id',$id);
         return $q->getResult();
     }
+    public function findByNom($p){
+
+        $query=$this->getEntityManager()->createQuery("SELECT m from SinistreAutomobileBundle:SinistreAutomobile m where m.localisation like :x")
+            ->setParameter('x','%'.$p.'%');
+        return $query->getResult();
+
+    }
+
 
 
 }

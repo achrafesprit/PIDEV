@@ -2,7 +2,7 @@
 # https://symfony.com/doc/current/service_container.html
 parameters:
     #parameter_name: value
-
+    app.path.product_image: /images/products
 
 services:
     fos_user.doctrine_registry:

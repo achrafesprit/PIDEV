@@ -34,9 +34,15 @@ class SinistreAutomobile
      * @ORM\Column(type="date")
      */
 
+
+
+
     private $datesinistre;
     /**
      * @ORM\Column(type="date")
+     *
+     * @Assert\Type("DateTime")
+     * @Assert\Expression("value >=this.getDatesinistre()")
      */
     private $dateajout;
     /**
@@ -47,14 +53,32 @@ class SinistreAutomobile
     private $localisation;
     /**
      * @ORM\Column(type="string",length=255)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 100
+     * )
+
+
      */
     private $description;
     /**
      * @ORM\Column(type="string",length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 50
+     * )
      */
     private $degathumaine;
     /**
      * @ORM\Column(type="string",length=255)
+     * * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 50
+     * )
      */
     private $bienendommage;
     /**
@@ -62,7 +86,7 @@ class SinistreAutomobile
      */
     private $constat;
     /**
-     * @Assert\File(maxSize="5000k")
+     * @Assert\File(maxSize="5000000000000000k")
      */
     private $file;
     /**
@@ -85,12 +109,18 @@ class SinistreAutomobile
     /**
      * @var string
      *
-     * @ORM\Column(name="Address", type="string", length=255)
+     * @ORM\Column(name="Address", type="string", length=255, nullable=true)
+     *  @Assert\NotBlank()
+     * @Assert\Length(
+     *     min = 20,
+     *      max = 50
+     *     )
      */
     private $address;
 
     /**
      * @return string
+     *
      */
     public function getAddress()
     {
@@ -313,6 +343,19 @@ class SinistreAutomobile
         $this->constat=$this->file->getClientOriginalName();
         $this->file=null;
     }
+  /*  public function  uploadProfilePicture()
+    {
+        if (null === $this->file) {
+            return;
+        }
+        if(!$this->constat){
+            $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
+        }else{
+
+            $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
+        }
+        $this->setConstat($this->file->getClientOriginalName());
+    }*/
 
     /**
      * Set constat

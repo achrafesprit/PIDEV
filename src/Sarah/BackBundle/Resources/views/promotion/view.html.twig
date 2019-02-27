@@ -1,0 +1,72 @@
+{% extends  "layoutadmin.html.twig"  %}
+{% block content %}
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Liste des promotions</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+
+                <thead>
+                <tr>
+                    <th>assurance</th>
+                    <th>type</th>
+                    <th>logo</th>
+                    <th>DateDebutPromotion</th>
+                    <th>DateFinPromotion</th>
+                    <th>PourcentageRemise</th>
+                    <th>nombre de clients</th>
+                    <th>Etat</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for promotion in promotions %}
+                    <tr>
+                        <td>{{ promotion.produit.type }}</td>
+                        <td>{{ promotion.produit.nom }}</td>
+                        <td><img src="{{ asset('images/') }}{{ promotion.nomImage }}" style= "width: 50px;height: 50px"> </td>
+
+
+                        <td>                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                            {{ promotion.dateDebutPromotion | date("y/m/d")  }}</td>
+                        <td>                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                            {{ promotion.DateFinPromotion | date("y/m/d")  }}</td>
+                        <td>{{ promotion.PourcentageRemise }}</td>
+                        <td>{{ promotion.Nombre }}</td>
+                        <td>{{ promotion.Etat }}</td>
+                        <td> <a href="{{ path('sarah_back_promotion_suppression',{'id' : promotion.Id}) }}">supprimer</a></td>
+                        <td> <a href="{{ path('sarah_back_promotion_modification',{'id' : promotion.Id}) }}">modifier</a></td>
+
+
+
+
+
+                       
+                    </tr>
+
+                {% endfor %}
+
+
+
+
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+    </div>
+    <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    </section>
+    <!-- /.content -->
+    </div>
+
+{% endblock %}

@@ -1,6 +1,10 @@
 {% extends "layout.html.twig" %}
 {% block content1 %}
 
+    <div class="count">
+        {{ pagination.getTotalItemCount }}
+    </div>
+
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{ asset('bundles/MyAppUserBundle/font-awesome/4.5.0/css/font-awesome.min.css')}}" />
@@ -28,11 +32,28 @@
     <!-- ace settings handler -->
     <script src="assets/js/ace-extra.min.js"></script>
 
+
+
+
+
+
+
+    <div class="count">
+    </div>
+
     <h1>
        Remboursements    <small>
             <i class="ace-icon fa fa-angle-double-right"></i>
             Remboursements &amp; Dynamic Tables
         </small></h1>
+
+
+
+
+
+
+
+
 
     <table border="2" bgcolor="aqua">
         <div class="row">
@@ -51,14 +72,9 @@
                         <th> supprimer</th>
 
 
-
-
-
-
-
                     </tr>
                     </tr>
-                    {% for RemboursementAutomobile in RemboursementAutomobile %}
+                    {% for RemboursementAutomobile in pagination %}
                         <tr>
                             <td> {{ RemboursementAutomobile.idremboursment }}</td>
                             <td>
@@ -73,17 +89,13 @@
                             <td> <a href=" {{ path("SupprimerRemboursmemeneautomobile",{'id': RemboursementAutomobile.idremboursment} ) }}"> Supprimer</a> </td>
 
                         </tr>
-
-
-
-
-
-
-
-
-
-
                     {% endfor %}
                 </table>
+                    </thead>
+                    <div class="navigation">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+
+
 
 {% endblock %}

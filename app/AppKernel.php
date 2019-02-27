@@ -18,6 +18,14 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new MyApp\UserBundle\MyAppUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Sarah\BackBundle\SarahBackBundle(),
+            new FOS\MessageBundle\FOSMessageBundle(),
+            new Nomaya\SocialBundle\NomayaSocialBundle(),
+            new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

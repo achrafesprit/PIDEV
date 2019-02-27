@@ -1,6 +1,27 @@
 {% trans_default_domain 'FOSUserBundle' %}
 <body background="{{ asset('video/slider-img2.jpg') }}">
+<link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundle/css/reset.css">
+<link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundlecss/plugins.css">
+<link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundlecss/style.css">
+<link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundlecss/color.css">
+<!--=============== favicons ===============-->
+<div id="wrapper">
+    <!--content -->
+    <div class="content">
+        <!--section -->
+        <section id="sec1">
+            <!-- container -->
+            <div class="container">
 
+                <div class="profile-edit-header fl-wrap">
+                    <h4>Inscription</h4>
+                </div>
+                <h1>  </h1>
+
+
+                <div class="profile-edit-container add-list-container">
+
+                    <div class="custom-form">
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
     {{ form_widget(form) }}
     <div>

@@ -1,0 +1,54 @@
+sarah_back_homepage:
+    path:     /J
+    defaults: { _controller: SarahBackBundle:Default:index }
+sarah_back_promotion_ajout:
+    path:     /ajoutPromotion
+    defaults: { _controller: SarahBackBundle:promotion:new }
+sarah_back_promotion_suppression:
+    path:     /supprimerPromotion/{id}
+    defaults: { _controller: SarahBackBundle:promotion:delete }
+sarah_back_promotion_modification:
+    path:     /modifierPromotion/{id}
+    defaults: { _controller: SarahBackBundle:promotion:edit }
+sarah_back_promotion_view:
+    path:     /viewPromotion
+    defaults: { _controller: SarahBackBundle:promotion:view }
+sarah_back_paquet_ajout:
+    path:     /ajoutPaquet
+    defaults: { _controller: SarahBackBundle:paquet:new }
+sarah_back_paquet_suppression:
+    path:     /supprimerPaquet/{id}
+    defaults: { _controller: SarahBackBundle:paquet:delete }
+sarah_back_paquet_modification:
+    path:     /modifierPaquet/{id}
+    defaults: { _controller: SarahBackBundle:paquet:edit }
+sarah_back_paquet_view:
+    path:     /viewPaquet
+    defaults: { _controller: SarahBackBundle:paquet:view }
+sarah_back_paquet_choose:
+    path:     /choosePaquet
+    defaults: { _controller: SarahBackBundle:paquet:choose }
+sarah_back_produit_ajout:
+    path:     /ajoutProduit
+    defaults: { _controller: SarahBackBundle:produit:new }
+sarah_back_produit_view:
+    path:     /viewProduit
+    defaults: { _controller: SarahBackBundle:produit:view }
+sarah_back_paquet_vieww:
+    path:     /viewwPaquet
+    defaults: { _controller: SarahBackBundle:paquet:vieww }
+sarah_back_promotion_afficher:
+    path:     /afficherPromotion
+    defaults: { _controller: SarahBackBundle:promotion:afficher }
+sarah_back_produit_suppression:
+    path:     /supprimerProduit/{id}
+    defaults: { _controller: SarahBackBundle:produit:delete }
+sarah_back_promotion_choisir:
+    path:     /choisirPromotion
+    defaults: { _controller: SarahBackBundle:promotion:choisir }
+_graphePie:
+    path:     /pie
+    defaults: { _controller: SarahBackBundle:Default:index}
+sarah_back_paquet_choisir:
+    path:     /choisirPaquet
+    defaults: { _controller: SarahBackBundle:paquet:choisir }

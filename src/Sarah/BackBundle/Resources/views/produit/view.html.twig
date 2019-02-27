@@ -1,0 +1,21 @@
+{% extends 'layoutadmin.html.twig' %}
+{% block content %}
+    <h3>Liste des modèles</h3>
+    <table border="2">
+        <th>Nom</th>
+        <th>Type</th>
+        <th>Promotion</th>
+
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.type }}</td>
+                <td>{{ produit.promotion }}</td>
+
+                <td> <a href="{{ path('sarah_back_produit_suppression',{'id' : produit.id}) }}">supprimer</a></td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+{% endblock %}

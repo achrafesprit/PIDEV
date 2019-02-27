@@ -1,9 +1,43 @@
 {% extends "layout.html.twig" %}
 {% block content1 %}
+    <link rel="stylesheet" href="assets/css/bootstrap-multiselect.min.css" />
+    <link rel="stylesheet" href="assets/css/select2.min.css" />
+    <link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundle/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundlecss/plugins.css">
+    <link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundlecss/style.css">
+    <link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundlecss/color.css">
+<link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundle/css/reset.css">
+<link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundlecss/plugins.css">
+<link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundlecss/style.css">
+<link type="text/css" rel="stylesheet" href="bundles/MyAppUserBundlecss/color.css">
+    <!--=============== favicons ===============-->
+    <div id="wrapper">
+    <!--content -->
+    <div class="content">
+    <!--section -->
+    <section id="sec1">
+    <!-- container -->
+    <div class="container">
 
+    <div class="profile-edit-header fl-wrap">
+        <h4>Location /  Contacts</h4>
+    </div>
+    <h1> Ajouter Sinistre </h1>
+
+
+    <div class="profile-edit-container add-list-container">
+
+    <div class="custom-form">
     <h3> Ajouter Sinistre </h3>
 
+    {{ form_start(Form) }}
+
     {{ form(Form) }}
+        <div class="soc-log fl-wrap">
+    {{ form_widget(Form.Valider, { 'attr': {'class': 'btn btn-primary btn-block','type':'submit'} }) }}
+        </div>
+    {{ form_end(Form) }}
+
 
 
 {% endblock %}

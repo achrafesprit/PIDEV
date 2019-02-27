@@ -1,0 +1,20 @@
+{% extends 'layoutadmin.html.twig' %}
+{% block content %}
+    <h3>Formulaire Promotion</h3>
+
+    <div>
+
+        {{ form_start(form) }}
+        <table border="1" >
+
+            <tr><td>  {{ form_row(form.produit) }}</td></tr>
+            <tr><td>  {{ form_row(form.dateDebutPromotion) }}</td></tr>
+            <tr><td>  {{ form_row(form.DateFinPromotion) }}</td></tr>
+            <tr><td>  {{ form_row(form.pourcentageRemise) }}</td></tr>
+            <tr><td>  {{ form_row(form.etat) }}</td></tr>
+            <tr><td> <input type="submit" value="Ajouter"></td></tr>
+        </table>
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}

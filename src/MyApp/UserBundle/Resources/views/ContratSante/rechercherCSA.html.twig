@@ -1,0 +1,115 @@
+
+
+
+{% extends  "default/consult.html.twig"  %}
+
+{% block container %}
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Liste des contrats</h3>
+        </div>
+
+
+
+
+        <form action="Chercher_contratSante" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                <a href=" {{ path("Chercher_contratSante") }}">  <span type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </span>
+              </span>
+            </div>
+
+        </form>
+
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table id="myTable" class="table table-bordered table-striped">
+
+                <thead>
+                <tr>
+                    <th>ID Contrat</th>
+                    <th>ID USER</th>
+                    <th> Date Naissance </th>
+
+                    <th> Type Contrat </th>
+                    <th> Couverture Assurances </th>
+                    <th> Image</th>
+                    <th>Rapport Medical</th>
+
+
+
+                    <th> Date Debut Contrat </th>
+                    <th> Date Fin Contrat </th>
+                    <th> Etat </th>
+
+
+                    <th> Modifier </th>
+                    <th> Generer Contrat </th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for ContratSante in ContratSante %}
+                    <tr>
+
+                        <td>{{ContratSante.idContratS}}</td>
+                        <td>{{ ContratSante.user}}</td>
+                        <td>{{ ContratSante.DateNaissance| date("y/m/d")}}</td>
+                        <td>{{ ContratSante.typeA}}</td>
+                        <td>{{ ContratSante.couvertureAssurance|json_encode()}}</td>
+
+                        <td><a href=" {{ path("afficher_image",{'id': ContratSante.nomImage} ) }}"><img src="{{ asset('images/') }}{{ ContratSante.nomImage }}" style="width: 50px;height: 50px" ></a></td>
+                        <td><a href="{{ vich_uploader_asset(ContratSante, 'imageFile' ,'MyApp\\UserBundle\\Entity\\ContratSante' )}}"/>Voir Releve d information</a></td>
+
+
+
+                        <td>
+                            {{ ContratSante.dateDebut | date  }}</td>
+                        <td>                         <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                            {{ ContratSante.dateFin | date("y/m/d")  }}</td>
+
+
+                        {%  if ContratSante.etat==0 %} <td> <a href=" {{ path("approuver",{'id': ContratSante.idContratS} ) }}"> <span class="label label-danger">Denied</span>   </a>  </td> {% else %} <td>  <a href=" {{ path("refuser",{'id': ContratSante.idContratS} ) }}">  <span class="label label-success">Approved</span> </a></td>
+                        {% endif %}
+
+
+
+
+                        <td><div class="pull-right box-tools">
+                                <a href=" {{ path("Modifier_ContratSanteAD",{'id': ContratSante.idContratS} ) }}">  <span class="btn btn-info btn-sm"
+                                                                                                                          title="Edit">
+                                        <i class="fa fa-edit"></i></span></a>
+                            </div></td>
+
+                        <td> <a href=" {{ path("Generer_ContratSante",{'id': ContratSante.idContratS} ) }}"><span class="btn btn-warning">Contrat</span></a></td>
+
+
+                    </tr>
+
+                {% endfor %}
+
+
+
+
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+        </div>
+
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+    </div>
+    <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    </section>
+    <!-- /.content -->
+    </div>
+
+{% endblock %}

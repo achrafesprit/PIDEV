@@ -8,7 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use Knp\Bundle\PaginatorBundle;
 class RemboursementAutomobileType extends AbstractType
 {
     /**
@@ -17,8 +17,8 @@ class RemboursementAutomobileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('estimation')->
-        add('dateremboursement')->
-        add('remboursementfinal')->
+        add('dateremboursement',HiddenType::class)->
+        add('remboursementfinal',HiddenType::class)->
         add('etat',HiddenType::class)->
         add('Sinistreautomobile',EntityType::class,array(
             'class'=>'MyAppUserBundle:Sinistreautomobile',

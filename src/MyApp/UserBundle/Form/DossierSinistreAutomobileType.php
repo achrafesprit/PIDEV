@@ -18,6 +18,7 @@ class DossierSinistreAutomobileType extends AbstractType
     {
         $builder->add('toutrsique',ChoiceType::class,array(
         'choices'=>array(
+            ''=>'',
             'Non'=>'Non',
             'Oui'=>'Oui'
 
@@ -26,60 +27,70 @@ class DossierSinistreAutomobileType extends AbstractType
 ->
         add('standard',ChoiceType::class,array(
     'choices'=>array(
+        ''=>'',
         'Non'=>'Non',
         'Oui'=>'Oui'
     )
 ))->
         add('entreeinterdit',ChoiceType::class,array(
                 'choices'=>array(
+                    ''=>'',
                     'Non'=>'Non',
                     'Oui'=>'Oui'
                 )
             ))->
         add('depassefeuoustop',ChoiceType::class,array(
                 'choices'=>array(
+                    ''=>'',
                     'Non'=>'Non',
                     'Oui'=>'Oui'
                 )
             ))->
         add('depassevitessemaximale',ChoiceType::class,array(
                 'choices'=>array(
+                    ''=>'',
                     'Non'=>'Non',
                     'Oui'=>'Oui'
                 )
             ))->
         add('moteur',ChoiceType::class,array(
                 'choices'=>array(
+                    ''=>'',
                     'Non'=>'Non',
                     'Oui'=>'Oui'
                 )
             ))->
         add('carcase',ChoiceType::class,array(
                 'choices'=>array(
+                    ''=>'',
                     'Non'=>'Non',
                     'Oui'=>'Oui'
                 )
             ))->
         add('remarquage',ChoiceType::class,array(
                 'choices'=>array(
+                    ''=>'',
                     'Non'=>'Non',
                     'Oui'=>'Oui'
                 )
             ))->
         add('fracture',ChoiceType::class,array(
                 'choices'=>array(
+                    ''=>'',
                     'Non'=>'Non',
                     'Oui'=>'Oui'
                 )
             ))->
         add('accidentmortelle',ChoiceType::class,array(
                 'choices'=>array(
+                    ''=>'',
                     'Non'=>'Non',
                     'Oui'=>'Oui'
                 )
             ))->
         add('hemoragie',ChoiceType::class,array(
                 'choices'=>array(
+                    ''=>'',
                     'Non'=>'Non',
                     'Oui'=>'Oui'
                 )

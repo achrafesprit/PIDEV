@@ -40,24 +40,9 @@
             </div>
             {% block navbar %}
 
-                <div class="header-search vis-header-search">
-                    <div class="header-search-input-item">
-                        <input type="text" placeholder="Keywords" value=""/>
-                    </div>
-                    <div class="header-search-select-item">
-                        <select data-placeholder="All Categories" class="chosen-select" >
-                            <option>All types</option>
-                            <option>Shops</option>
-                            <option>Hotels</option>
-                            <option>Restaurants</option>
-                            <option>Fitness</option>
-                            <option>Events</option>
-                        </select>
-                    </div>
-                    <button class="header-search-button" onclick="window.location.href='listing.html'">Search</button>
-                </div>
+
+
                 <div class="show-search-button"><i class="fa fa-search"></i> <span>Search</span></div>
-                <a href={{ asset('templatefront/pages/dashboard-add-listing.html') }} class="add-list">Add Listing <span><i class="fa fa-plus"></i></span></a>
                 <div class="show-reg-form modal-open"><i class="fa fa-sign-in"></i>Sign In</div>
                 <!-- nav-button-wrap-->
                 <div class="nav-button-wrap color-bg">
@@ -68,60 +53,7 @@
                 <!-- nav-button-wrap end-->
                 <!--  navigation -->
                 <div class="nav-holder main-menu">
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="{{ asset('templatefront/pages/index2.html') }}">Acceuil</a>
-                                <!--second level -->
-                                <!--second level end-->
-                            </li>
-                            <li>
-                                <a href="#">Catégories <i class="fa fa-caret-down"></i></a>
-                                <!--second level -->
-                                <ul>
-                                    <li><a href={{ asset('templatefront/pages/listing.html') }}>Column map</a></li>
-                                    <li><a href={{ asset('templatefront/pages/listing2.html') }}>Column map 2</a></li>
-                                    <li><a href={{ asset('templatefront/pages/listing3.html') }}>Fullwidth Map</a></li>
-                                    <li><a href={{ asset('templatefront/pages/listing4.html') }}>Fullwidth Map 2</a></li>
-                                    <li><a href={{ asset('templatefront/pages/listing5.html') }}>Without Map</a></li>
-                                    <li><a href={{ asset('templatefront/pages/listing6.html') }}>Without Map 2</a></li>
-                                    <li>
-                                        <a href="#">Single <i class="fa fa-caret-down"></i></a>
-                                        <!--third  level  -->
-                                        <ul>
-                                            <li><a href={{ asset('templatefront/pages/listing-single.html') }}>Style 1</a></li>
-                                            <li><a href={{ asset('templatefront/pages/listing-single2.html') }}>Style 2</a></li>
-                                            <li><a href={{ asset('templatefront/pages/listing-single3.html') }}>Style 3</a></li>
-                                        </ul>
-                                        <!--third  level end-->
-                                    </li>
-                                </ul>
-                                <!--second level end-->
-                            </li>
-                            <li>
-                                <a href={{ asset('templatefront/pages/blog.html') }}>Publicité</a>
-                            </li>
-                            <li>
-                                <a href="#">Pages <i class="fa fa-caret-down"></i></a>
-                                <!--second level -->
-                                <ul>
-                                    <li><a href={{ asset('templatefront/pages/about.html') }}>About</a></li>
-                                    <li><a href={{ asset('templatefront/pages/contacts.html') }}>Contacts</a></li>
-                                    <li><a href={{ asset('templatefront/pages/author-single.html') }}>User single</a></li>
-                                    <li><a href={{ asset('templatefront/pages/how-itworks.html') }}>How it Works</a></li>
-                                    <li><a href={{ asset('templatefront/pages/pricing-tables.html') }}>Pricing</a></li>
-                                    <li><a href={{ asset('templatefront/pages/dashboard-myprofile.html') }}>User Dasboard</a></li>
-                                    <li><a href={{ asset('templatefront/pages/blog-single.html') }}>Blog Single</a></li>
-                                    <li><a href={{ asset('templatefront/pages/dashboard-add-listing.html') }}>Add Listing</a></li>
-                                    <li><a href={{ asset('templatefront/pages/404.html') }}>404</a></li>
-                                    <li><a href={{ asset('templatefront/pages/coming-soon.html') }}>Coming Soon</a></li>
-                                    <li><a href={{ asset('templatefront/pages/header2.html') }}>Header 2</a></li>
-                                    <li><a href={{ asset('templatefront/pages/footer-fixed.html') }}>Footer Fixed</a></li>
-                                </ul>
-                                <!--second level end-->
-                            </li>
-                        </ul>
-                    </nav>
+
                 </div>
             {%  endblock %}
             <!-- navigation  end -->
@@ -162,33 +94,9 @@
                             <h2>Notre Assurances</h2>
                             <h3>Automoubile , Habitation , Voyage , Maladie.</h3>
                         </div>
-                        <div class="main-search-input-wrap">
-                            <div class="main-search-input fl-wrap">
-                                <div class="main-search-input-item">
-                                    <input type="text" placeholder="What are you looking for?" value=""/>
-                                </div>
-                                <div class="main-search-input-item location">
-                                    <input type="text" placeholder="Location" value=""/>
-                                    <a href="#"><i class="fa fa-dot-circle-o"></i></a>
-                                </div>
-                                <div class="main-search-input-item">
-                                    <select data-placeholder="All Categories" class="chosen-select" >
-                                        <option>All Categories</option>
-                                        <option>Shops</option>
-                                        <option>Hotels</option>
-                                        <option>Restaurants</option>
-                                        <option>Fitness</option>
-                                        <option>Events</option>
-                                    </select>
-                                </div>
-                                <button class="main-search-button" onclick="window.location.href='listings-half-screen-map-list.html'">Search</button>
-                            </div>
-                        </div>
+
+
                     </div>
-                </div>
-                <div class="bubble-bg"> </div>
-                <div class="header-sec-link">
-                    <div class="container"><a href="#sec2" class="custom-scroll-link">Let's Start</a></div>
                 </div>
             </section>
             <!-- section end -->

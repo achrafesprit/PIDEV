@@ -1,0 +1,123 @@
+{% extends "@Contrat/ContratSante/indexS.html.twig" %}
+{% block container %}
+    <form method="post">
+        <div class="act-widget fl-wrap">
+            <div class="act-widget-header">
+                <h4>Certificat Naissance</h4></div>
+            <div class="add-list-media-wrap">
+                <form   class="fuzone">
+                    <div class="fu-text">
+                        <span><i class="fa fa-picture-o"></i> Click here or drop files to upload</span>
+                    </div>
+                    <input type="text" name="certificat_naissance"  ><br>
+                    <label>Rapport Medical</label>
+                    <input type="text" name="rapport_med"><br>
+                    <label>Couverture Assurance</label>
+                    <input type="text" name="couverture_assurance"><br>
+                    <label>image</label>
+                    <input type="text" name="image"><br>
+                    <input type="submit" value="Ajouter">
+                </form>
+
+                <!-- profile-edit-container end-->
+                <!-- profile-edit-container-->
+                <div class="col-md-9">
+                    <!-- profile-edit-container-->
+                    <div class="profile-edit-container add-list-container">
+                        <div class="profile-edit-header fl-wrap">
+                            <h4>Couverture de l'assurance</h4>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Category</label>
+                                <select name="couverture_assurance" data-placeholder="All Categories" class="chosen-select" >
+                                    <option>Types assurances</option>
+                                    <option>au tiers</option>
+                                    <option>tous risq</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </br>
+        </br>
+        </br>
+        </br>
+        <!-- profile-edit-container end-->
+        <!-- profile-edit-container-->
+        <!-- profile-edit-container end-->
+        <!-- profile-edit-container-->
+
+        <div class="profile-edit-container add-list-container">
+            <div class="profile-edit-header fl-wrap">
+                <h4>Documents récentes</h4>
+            </div>
+            <div class="custom-form">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- act-widget-->
+                        <div class="act-widget fl-wrap">
+                            <div class="act-widget-header">
+                                <h4>1. Certificat Naissance</h4>
+
+                            </div>
+                            <div class="add-list-media-wrap">
+                                <form   class="fuzone">
+                                    <div class="fu-text">
+                                        <span><i class="fa fa-picture-o"></i> Click here or drop files to upload</span>
+                                    </div>
+                                    <input name="certificat_naissance" type="file" class="upload">
+                                </form>
+
+                            </div>
+                        </div>
+                        <!-- act-widget end-->
+                    </div>
+                    <div class="col-md-4">
+                        <!-- act-widget-->
+                        <div class="act-widget fl-wrap">
+                            <div class="act-widget-header">
+                                <h4>2. Rapport Medical</h4>
+
+                            </div>
+                            <div class="add-list-media-wrap">
+                                <form   class="fuzone">
+                                    <div class="fu-text">
+                                        <span><i class="fa fa-picture-o"></i> Click here or drop files to upload</span>
+                                    </div>
+                                    <input name="rapport_med" type="file" class="upload">
+                                </form>
+                            </div>
+                        </div>
+                        <!-- act-widget end-->
+                    </div>
+                    <div class="col-md-4">
+                        <!-- act-widget-->
+                        <div class="act-widget fl-wrap">
+                            <div class="act-widget-header">
+                                <h4>3. Photo Récente</h4>
+
+                            </div>
+                            <div class="add-list-media-wrap">
+                                <form   class="fuzone">
+                                    <div class="fu-text">
+                                        <span><i class="fa fa-picture-o"></i> Click here or drop files to upload</span>
+                                    </div>
+                                    <input  name="image" type="file" class="upload">
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <!-- act-widget end-->
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

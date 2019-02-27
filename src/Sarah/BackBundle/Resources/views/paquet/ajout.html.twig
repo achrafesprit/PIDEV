@@ -1,0 +1,20 @@
+{% extends 'layoutadmin.html.twig' %}
+{% block content1 %}
+    <h3>{{ input }}</h3>
+
+    <div>
+
+        {{ form_start(form) }}
+        <table border="1" >
+
+            <tr><td>  {{ form_row(form.ProduitTypeSante) }}</td></tr>
+            <tr><td>  {{ form_row(form.ProduitTypeVoiture) }}</td></tr>
+            <tr><td>  {{ form_row(form.dateDebutOffre) }}</td></tr>
+            <tr><td>  {{ form_row(form.dateFinOffre) }}</td></tr>
+            <tr><td>  {{ form_row(form.prixOffre) }}</td></tr>
+            <tr><td> <input type="submit" value="Ajouter"></td></tr>
+        </table>
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}

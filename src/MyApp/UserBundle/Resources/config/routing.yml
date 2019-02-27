@@ -52,7 +52,9 @@ afficher_constat:
 Localisation:
     path:     /localiser
     defaults: { _controller: MyAppUserBundle:SinistreAutomobile:localiser }
-
+Afficher_sinistreautomobileUser:
+    path:     /afficherSAU
+    defaults: { _controller: MyAppUserBundle:SinistreAutomobile:listSAU }
 
 
 
@@ -88,6 +90,22 @@ ListeArachive:
 ListeTresorerie:
     path:     /listTR
     defaults: { _controller: MyAppUserBundle:Tresorerie:listTR }
+ListeRAU:
+    path:     /listRAU
+    defaults: { _controller: MyAppUserBundle:RemboursementAutomobile:listRAU }
+
+ListePP:
+    path:     /listPP
+    defaults: { _controller: MyAppUserBundle:Tresorerie:listPP }
+
+Mail:
+    path:     /mail
+    defaults: { _controller:  MyAppUserBundle:SinistreAutomobile:Mail }
+
+
+rechercheChallenge:
+    path:     /ajax
+    defaults: { _controller:  MyAppUserBundle:SinistreAutomobile:search }
 
 
 
@@ -98,4 +116,76 @@ ListeTresorerie:
 
 
 
+
+
+Ajouter_ContratSante:
+    path:     /ajouterCS
+    defaults: { _controller: MyAppUserBundle:ContratSante:AjoutCS }
+lister_ContratSante:
+    path:     /listerCS
+    defaults: { _controller: MyAppUserBundle:ContratSante:listCS }
+listertoutContratSante:
+    path:     /listerTCS
+    defaults: { _controller: MyAppUserBundle:ContratSante:listTCS }
+Generer_ContratSante:
+    path:     /genererPDF
+    defaults: { _controller: MyAppUserBundle:ContratSante:GenererC }
+listertoutContratSanteResil:
+    path:     /ResilS
+    defaults: { _controller: MyAppUserBundle:ContratSante:listResilS }
+
+
+Supprimer_ContratSante:
+    path:     /supprimerCS
+    defaults: { _controller: MyAppUserBundle:ContratSante:supprimerCS }
+
+Supprimer_ContratSanteR:
+    path:     /supprimerRCS
+    defaults: { _controller: MyAppUserBundle:ContratSante:supprimerRCS }
+Modifier_ContratSante:
+    path:     /modifierCS
+    defaults: { _controller: MyAppUserBundle:ContratSante:modifierCS }
+Modifier_ContratSanteAD:
+    path:     /modifierADCS
+    defaults: { _controller: MyAppUserBundle:ContratSante:modifierCSAd }
+
+afficher_image:
+    path:     /modifierCS
+    defaults: { _controller: MyAppUserBundle:ContratSante:afficherI }
+approuver:
+    path:     /approuver
+    defaults: { _controller: MyAppUserBundle:ContratSante:approuver }
+refuser:
+    path:     /refuser
+    defaults: { _controller: MyAppUserBundle:ContratSante:refuser }
+
+rechercherCSante:
+    path:     /rechercherCSante
+    defaults: { _controller: MyAppUserBundle:ContratSante:recherche }
+
+
+
+Ajouter_ContratAuto:
+    path:     /ajouterCA
+    defaults: { _controller: MyAppUserBundle:ContratAutomobile:AjoutCA }
+lister_ContratAuto:
+    path:     /listerCA
+    defaults: { _controller: MyAppUserBundle:ContratAutomobile:listCA }
+afficher_CG:
+    path:     /modifierCS
+    defaults: { _controller: MyAppUserBundle:ContratAutomobile:AfficherIm }
+Supprimer_ContratAuto:
+    path:     /supprimerCA
+    defaults: { _controller: MyAppUserBundle:ContratAutomobile:supprimerCA }
+
+
+Modifier_ContratAuto:
+    path:     /modifierCA
+    defaults: { _controller: MyAppUserBundle:ContratAutomobile:modifierCA }
+listertoutContratAuto:
+    path:     /listerTCA
+    defaults: { _controller: MyAppUserBundle:ContratAutomobile:listTCA }
+Chercher_contratSante:
+    path:     /searchCA
+    defaults: { _controller: MyAppUserBundle:ContartSante:rechercherCSA }
 

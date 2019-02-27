@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@MyAppUserBundle/Resources/config/services.yml" }
+    - { resource: "@SarahBackBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -75,3 +76,79 @@ fos_user:
     from_email:
                   address:        app@yoursite.com
                   sender_name:    Your App Admin
+
+fos_message:
+    db_driver: orm
+    thread_class: MyApp\UserBundle\Entity\Thread
+    message_class: MyApp\UserBundle\Entity\Message
+nomaya_social:
+    buttons:
+        facebook:
+            url:            "http://www.facebook.com/9gag/"
+            locale:         "fr_FR"
+            send:           true
+            width:          300
+            showFaces:      false
+            layout:         "button_count"
+        twitter:
+            url:            null
+            locale:         "fr"
+            message:        "Je veux partager ça avec vous"
+            text:           "Tweet"
+            via:            "L'Equipe cartedevisitevirtuelle.fr"
+            tag:            "ttot"
+        googleplus:
+            url:            null
+            locale :        "fr"
+            size :          "medium"
+            annotation :    "bubble"
+            width :         300
+        linkedin:
+            url:            null
+            locale:         "fr_FR"
+            counter:        "right"
+            width :         400
+        pinterest:
+            url:            null
+    links:
+        facebook:           "http://www.facebook.com/yann.chauvel"
+        googleplus:         "https://plus.google.com/105931415830389032796"
+    theme:                  'default' # optional
+
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        product_image:
+            uri_prefix: /tech/public/images/products
+            upload_destination: '%kernel.project_dir%/public%app.path.product_image%'
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+knp_snappy:
+    pdf:
+        enabled:    true
+            # If you have wkhtmltopdf as an environment variable you don't need to provide the
+            # full path to the executable, use it in the same way as you use in the console
+            #binary:  "wkhtmltopdf"
+            binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+            options:
+                no-outline: true
+                page-size: LETTER
+                # Recommended to set UTF-8 as default encoding :)
+                encoding: UTF-8
+
+
+knp_paginator:
+    page_range: 5                       # number of links showed in the pagination menu (e.g: you have 10 pages, a page_range of 3, on the 5th page you'll see links to page 4, 5, 6)
+    default_options:
+        page_name: page                 # page query parameter name
+        sort_field_name: sort           # sort field query parameter name
+        sort_direction_name: direction  # sort direction query parameter name
+        distinct: true                  # ensure distinct results, useful when ORM queries are using GROUP BY statements
+        filter_field_name: filterField  # filter field query parameter name
+        filter_value_name: filterValue  # filter value query parameter name
+    template:
+        pagination: 'KnpPaginatorBundle:Pagination:sliding.html.twig'     # sliding pagination controls template
+        sortable: 'KnpPaginatorBundle:Pagination:sortable_link.html.twig' # sort link template
+        filtration: 'KnpPaginatorBundle:Pagination:filtration.html.twig'  # filters template

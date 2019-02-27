@@ -1,0 +1,24 @@
+<h1>  {{title}}</h1>
+</br>
+</br>
+<h2> Mr/Mrs  </h2>
+</br> {{ user }}
+</br>
+<p> <h2> Contrat num : </h2> {{ idContratSante }}  </p>
+
+</br>
+<h2> Couverture assurance : </h2>  {{ Couverture|json_encode() }}
+</br>
+
+<p> <h2>Type de contrat :</h2> {{ type }} </p>
+
+
+</br>
+</br>
+</br>
+
+<p>Les garanties du present contrat s exercent conformement :
+    - aux Dispositions Generales "Swiss Responsabilite Civile
+    </p> - aux presentes Dispositions Personnelles.
+</<br>
+   <p> Le Preneur d assurance reconnait avoir recu un exemplaire de ces documents. </p>

@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+{% block content1 %}
+    <h3>liste Paquets</h3>
+
+
+    <table border="1" >
+
+        <tr>
+            <th>id</th>
+            <th>id produit type sante</th>
+            <th>id produit type voiture</th>
+            <th>date debut offre</th>
+            <th>date fin offre</th>
+            <th>prix offre</th>
+            <th>nombre de clients</th>
+
+
+
+        </tr>
+
+        {% for paquet in paquets %}
+            <tr>
+                <td>{{ paquet.id }}</td>
+                <td>{{ paquet.ProduitTypeSante.id}}</td>
+                <td>{{ paquet.ProduitTypeVoiture.id}}</td>
+                <td>{{ paquet.DateDebutOffre|date('Y-m-d') }}</td>
+                <td>{{ paquet.DateFinOffre|date('Y-m-d') }}</td>
+                <td>{{ paquet.PrixOffre}}</td>
+                <td>{{ paquet.Nombre}}</td>
+                <td> <a href="{{ path('sarah_back_paquet_suppression',{'id' : paquet.id}) }}">supprimer</a></td>
+                <td> <a href="{{ path('sarah_back_paquet_modification',{'id' : paquet.id}) }}">modifier</a></td>
+            </tr>
+
+        {% endfor %}
+    </table>
+    <div>
+        <ul>
+            <li>
+                <a href="{{ path('sarah_back_paquet_ajout') }}">Creer un nouveau paquet</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/achraff/pidev/pidev/web/bundles/MyAppUserBundle/css/bootstrap.min.css" xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" href="/achraff/pidev/pidev/web/bundles/MyAppUserBundle/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/achraff/pidev/pidev/web/bundles/MyAppUserBundle/css/fonts.googleapis.com.css">
+<link rel="stylesheet" href="/achraff/pidev/pidev/web/bundles/MyAppUserBundle/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style">
+<div class="container">
+    <table id="simple-table" class="table  table-bordered table-hover" >
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset={{ _charset }}" />
+        <title>{% trans from 'FOSMessageBundle' %}messenger{% endtrans %}</title>
+    </head>
+
+    <body>
+
+        <h1>{% trans from 'FOSMessageBundle' %}messenger{% endtrans %}</h1>
+        {{ fos_message_nb_unread() }}
+
+        <ul>
+            <li><a href="{{ url('fos_message_inbox') }}">{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</a></li>
+            <li><a href="{{ url('fos_message_sent') }}">{% trans from 'FOSMessageBundle' %}sent{% endtrans %}</a></li>
+            <li><a href="{{ url('fos_message_deleted') }}">{% trans from 'FOSMessageBundle' %}deleted{% endtrans %}</a></li>
+        </ul>
+
+        {% block fos_message_content %}
+        {% endblock %}
+
+    </body>
+</html>

@@ -1,0 +1,44 @@
+{% extends "MyAppUserBundle:ContratSante:indexS.html.twig" %}
+{% block container %}
+
+
+
+
+
+
+            {{ form_start(form) }}
+
+            <div class="form-group">
+            {{ form_widget(form.couvertureAssurance, {'attr':{'class':'form-control'}}) }}
+            </div>
+    </br>
+    </br>
+            <div class="chosen-select">
+            {{ form_widget(form.typeA , {'attr':{'class':'form-control'}}) }}
+            </div>
+    </br>
+    </br>
+    <div>
+            {{ form_widget(form.nomImage ,  {'attr':{'class':'form-control'}}) }}
+    </div>
+
+    </br>
+    </br>
+    <div>
+            {{ form_widget(form.DateNaissance, {'attr':{'class':'input-group date'}}) }}
+    </div>
+    </br>
+    </br>
+    <div>
+            {{ form_widget(form.imageFile, {'attr':{'class':'form-control'}}) }}</div>
+        </br>
+        </br>
+
+    </br>
+    </br>
+            {{ form_end(form) }}
+
+        </div>
+
+
+{% endblock %}
